@@ -21,4 +21,8 @@ public class UserService {
         User user = userMapper.selectByUsername(name);
         return user==null;
     }
+
+    public void updateMsg(User my) {
+        userMapper.updateMsg(my);
+    }
 }

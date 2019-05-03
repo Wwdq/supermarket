@@ -13,4 +13,6 @@ public interface UserMapper {
 
     @Select("select *from user where username=#{0}")
     User selectByUsername(String username);
+    @Update("update user set QQ=#{QQ},email=#{email},phone=#{phone},sex=#{sex} where username=#{username}")
+    void updateMsg(User my);
 }
