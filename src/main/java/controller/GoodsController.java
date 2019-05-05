@@ -79,7 +79,7 @@ public class GoodsController {
         page.setKey(key);
         page.setFf(1);
         req.setAttribute("page", page);
-        ConcurrentHashMap
+
         return "/goods/goods";
     }
 }
