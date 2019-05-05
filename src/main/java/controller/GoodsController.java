@@ -11,7 +11,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import service.GoodsService;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.util.List;
+import java.util.concurrent.ConcurrentHashMap;
 
 @Controller
 @RequestMapping("/goods")
@@ -22,6 +24,7 @@ public class GoodsController {
 
     @RequestMapping("/index")
     public String toIndex(Integer flag, HttpServletRequest req, @RequestParam(defaultValue = "1") Integer pageNo, @RequestParam(defaultValue = "2") Integer size, Integer type) {
+
         if (flag != null) {
             List<Goods> goods = goodsService.selectByFlag(pageNo, size);
             req.setAttribute("goods", goods);
@@ -73,8 +76,10 @@ public class GoodsController {
         int count = goodsService.selectCountByName(key) % size == 0 ? goodsService.selectCountByName(key) / size : goodsService.selectCountByName(key) / size + 1;
         page.setCount(count);
         logger.debug(count);
+        page.setKey(key);
+        page.setFf(1);
         req.setAttribute("page", page);
-        req.setAttribute("key", key);
+        ConcurrentHashMap
         return "/goods/goods";
     }
 }

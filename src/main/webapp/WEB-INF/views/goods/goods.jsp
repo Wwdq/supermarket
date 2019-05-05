@@ -297,6 +297,7 @@
                              </c:if>
                          </c:forEach>
                         <c:if test="${page.pageNo!=page.count}">
+
                             <a href="${APP_PATH}/goods/index?pageNo=${page.pageNo+1}&type=${page.type}<c:if test="${page.flag==1}">&flag=1</c:if>">下一页&gt;</a>
                         </c:if>
 

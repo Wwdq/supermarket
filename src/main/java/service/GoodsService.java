@@ -6,7 +6,6 @@ import org.apache.log4j.Logger;
 import org.omg.CORBA.INTERNAL;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -53,11 +52,13 @@ public class GoodsService {
     }
 
     public List<Goods> selectAllByKey(String key, Integer pageNo, Integer size) {
-        Map<String, Integer> map = new HashMap<>();
+        Map<String, Object> map = new HashMap<>();
         map.put("start", (pageNo - 1) * size);
         map.put("size", size);
+
         key="%"+key+"%";
-        return goodsMapper.selectByName(key, map);
+        map.put("key", key);
+        return goodsMapper.selectByName(map);
     }
 
     public int selectCountByName(String key) {

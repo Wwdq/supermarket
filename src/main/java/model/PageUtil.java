@@ -5,6 +5,8 @@ public class PageUtil {
     private  int pageNo;
     private  int type;
     private  int flag;
+    private  String key;
+    private  int ff;
     public int getCount() {
         return count;
     }
@@ -35,5 +37,21 @@ public class PageUtil {
 
     public void setFlag(int flag) {
         this.flag = flag;
+    }
+
+    public String getKey() {
+        return key;
+    }
+
+    public void setKey(String key) {
+        this.key = key;
+    }
+
+    public int getFf() {
+        return ff;
+    }
+
+    public void setFf(int ff) {
+        this.ff = ff;
     }
 }

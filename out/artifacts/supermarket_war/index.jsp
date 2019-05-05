@@ -57,7 +57,7 @@
         <div class="logo"><a href="Home.html"><img src="images/logo1.png" alt="生鲜网" /></a></div>
         <!--结束图层-->
         <div class="Search">
-            <p><input name="" type="text"  class="text"/><input name="" type="submit" value="搜 索"  class="Search_btn"/></p>
+            <p><input id="key" name="" type="text"  class="text"/><input id="find" name="" type="submit" value="搜 索"  class="Search_btn"/></p>
             <p class="Words"><a href="Product_Detailed.html">虾仁</a><a href="Product_Detailed.html">三文鱼</a><a href="Product_Detailed.html">菠萝</a><a href="Product_Detailed.html">西红柿</a><a href="Product_Detailed.html">橙子</a><a href="Product_Detailed.html">苹果</a></p>
         </div>
         <!--购物车样式-->
@@ -186,7 +186,13 @@
 
 
 </div>
+<script>
+    $("#find").click(function () {
+        var key=$("#key").val();
 
+        window.location.href="${APP_PATH}/goods/find?key="+key;
+    })
+</script>
 </body>
 </html>
 
